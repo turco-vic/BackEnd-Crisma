@@ -21,10 +21,12 @@ const getWizardById = async (id) => {
 
 //Atualizar para receber photo.
 const createWizard = async (name, house_id, photo) => {
+    console.log("wizardModel - params:", name, house_id, photo);
     const result = await pool.query(
         "INSERT INTO wizards (name, house_id, photo) VALUES ($1, $2, $3) RETURNING *",
         [name, house_id, photo]
     );
+    console.log("wizardModel - result:", result.rows[0]);
     return result.rows[0];
 };
 

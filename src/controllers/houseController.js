@@ -22,11 +22,15 @@ const getHouse = async (req, res) => {
 };
 
 const createHouse = async (req, res) => {
+    console.log("req.body:", req.body);
     try {
         const { name, founder } = req.body;
+        console.log("name:", name, "founder:", founder);
         const newHouse = await houseModel.createHouse(name, founder);
+        console.log("newHouse:", newHouse);
         res.status(201).json(newHouse);
     } catch (error) {
+        console.log("erro:", error.message);
         res.status(500).json({ message: "Erro ao criar Casa!" });
     }
 };
@@ -46,8 +50,13 @@ const updateHouse = async (req, res) => {
 
 const deleteHouse = async (req, res) => {
     try {
-        const message = await houseModel.deleteHouse(req.params.id);
-        res.json(message);
+        const result = await houseModel.deleteHouse(req.params.id);
+        
+        if (result.error) {
+            return res.status(404).json(result);
+        }
+        
+        res.status(200).json(result);
     } catch (error) {
         res.status(500).json({ message: "Erro ao deletar house." });
     }
