@@ -53,7 +53,7 @@ const deleteHouse = async (req, res) => {
         const result = await houseModel.deleteHouse(req.params.id);
         
         if (result.error) {
-            return res.status(404).json(result);
+            return res.status(500).json(result);
         }
         
         res.status(200).json(result);
