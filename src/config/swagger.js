@@ -6,9 +6,9 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'API dos Bruxos e Casas',
+      title: 'API de Crismandos e Salas',
       version: '1.0.0',
-      description: 'Documentação da API para gerenciar bruxos e casas de Hogwarts',
+      description: 'Documentação da API para gerenciar crismandos e salas da crisma',
     },
   },
   apis: ['./src/routes/*.js'], // <- Caminho das suas rotas

@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const wizardRoutes = require("./src/routes/wizardRoutes");
-const houseRoutes = require("./src/routes/houseRoutes");
+const salaRoutes = require("./src/routes/salaRoutes");
 const setupSwagger = require('./src/config/swagger'); // Swagger aqui
 const path = require("path");
 
@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/wizards", wizardRoutes);
-app.use("/api/houses", houseRoutes);
+app.use("/api/houses", salaRoutes);
 setupSwagger(app); // Ativa o Swagger
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 

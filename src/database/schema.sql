@@ -2,7 +2,7 @@ CREATE DATABASE hp;
 
 \c hp; 
 
-CREATE TABLE houses (
+CREATE TABLE salas (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) UNIQUE NOT NULL,
     founder VARCHAR(100) NOT NULL
@@ -11,17 +11,17 @@ CREATE TABLE houses (
 CREATE TABLE wizards (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    house_id INTEGER NOT NULL REFERENCES houses(id) ON DELETE CASCADE,
+    sala_id INTEGER NOT NULL REFERENCES salas(id) ON DELETE CASCADE,
     photo VARCHAR(255)
 );
 
-INSERT INTO houses (name, founder) VALUES 
+INSERT INTO salas (name, founder) VALUES 
     ('Grifinória', 'Godric Gryffindor'),
     ('Sonserina', 'Salazar Slytherin'),
     ('Corvinal', 'Rowena Ravenclaw'),
     ('Lufa-Lufa', 'Helga Hufflepuff');
 
-INSERT INTO wizards (name, house_id) VALUES 
+INSERT INTO wizards (name, sala_id) VALUES 
     ('Harry Potter', 1),
     ('Draco Malfoy', 2),
     ('Luna Lovegood', 3),
