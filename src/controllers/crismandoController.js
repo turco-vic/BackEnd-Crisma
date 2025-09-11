@@ -41,11 +41,11 @@ const createCrismando = async (req, res) => {
 const updateCrismando = async (req, res) => {
     try {
         const { name, sala_id } = req.body;
-        const updateCrismando = await crismandoModel.updateCrismando(req.params.id, name, sala_id);
-        if (!updateCrismando) {
+        const updatedCrismando = await crismandoModel.updateCrismando(req.params.id, name, sala_id);
+        if (!updatedCrismando) {
             return res.status(404).json({ message: "Crismando não encontrado!" });
         }
-        res.json(updatecCrismando);
+        res.json(updatedCrismando);
     } catch (error) {
         res.status(500).json({ message: "Erro ao atualizar Crismando!" });
     }
@@ -53,7 +53,7 @@ const updateCrismando = async (req, res) => {
 
 const deleteCrismando = async (req, res) => {
     try {
-        const message = await CrismandoModel.deletecrismando(req.params.id);
+        const message = await crismandoModel.deleteCrismando(req.params.id);
         res.json(message);
     } catch (error) {
         res.status(500).json({ message: "Erro ao deletar Crismando!" });

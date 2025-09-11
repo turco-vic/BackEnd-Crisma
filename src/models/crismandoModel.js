@@ -9,7 +9,7 @@ const getCrismandos = async () => {
     return result.rows;
 };
 
-const getCrismanoById = async (id) => {
+const getCrismandoById = async (id) => {
     const result = await pool.query(
         `SELECT crismandos.*, salas.name AS sala_name 
         FROM crismandos 
@@ -45,4 +45,4 @@ const deleteCrismando = async (id) => {
     return { message: "Crismando deletado com sucesso!" };
 };
 
-module.exports = { getCrismandos, getCrismanoById, createCrismando, updateCrismando, deleteCrismando };
+module.exports = { getCrismandos, getCrismandoById, createCrismando, updateCrismando, deleteCrismando };
