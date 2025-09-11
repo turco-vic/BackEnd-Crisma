@@ -10,14 +10,26 @@ CREATE TABLE salas (
 
 CREATE TABLE crismandos (
     id SERIAL PRIMARY KEY,
+    profile_photo VARCHAR(255),
     name VARCHAR(100) NOT NULL,
     surname VARCHAR(100) NOT NULL,
     birthday DATE NOT NULL,
     cep NUMBER NOT NULL,
-    road
-    house_number VANCHAR NOT NULL,
+    road VARCHAR(50) NOT NULL,
+    house_number VARCHAR(10) NOT NULL,
+    complement VARCHAR(50),
+    neighborhood VARCHAR(100) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    instagram VARCHAR(30) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    password VARCHAR(30) NOT NULL,
+    responsible_person VARCHAR(100),
+    responsible_person_phone VARCHAR(20),
+    baptismal_certificate VARCHAR(255),
+    certificate_first_communion
+    rg VARCHAR(255),
     sala_id INTEGER NOT NULL REFERENCES salas(id) ON DELETE CASCADE,
-    photo VARCHAR(255)
 );
 
 INSERT INTO salas (name, founder) VALUES 
