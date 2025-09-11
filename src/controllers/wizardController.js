@@ -22,13 +22,19 @@ const getWizard = async (req, res) => {
 };
 
 const createWizard = async (req, res) => {
+    console.log("Controller - req.body:", req.body);
     try {
         const { name, house_id } = req.body;
+        const house_id_number = parseInt(house_id);
+        console.log("Controller - name:", name, "house_id:", house_id_number);
+        
         const photo = req.file ? req.file.filename : null;
-        const newWizard = await wizardModel.createWizard(name, house_id, photo);
+        const newWizard = await wizardModel.createWizard(name, house_id_number, photo);
+        console.log("Controller - wizard criado:", newWizard);
         res.status(201).json(newWizard);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao criar bruxo!" });
+        console.log("Controller - erro:", error.message);
+        res.status(500).json({ message: "Erro ao criar bruxo!", error: error.message });
     }
 };
 

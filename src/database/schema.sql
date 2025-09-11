@@ -11,7 +11,8 @@ CREATE TABLE houses (
 CREATE TABLE wizards (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    house_id INTEGER REFERENCES houses(id) ON DELETE SET NULL
+    house_id INTEGER NOT NULL REFERENCES houses(id) ON DELETE CASCADE,
+    photo VARCHAR(255)
 );
 
 INSERT INTO houses (name, founder) VALUES 
