@@ -5,41 +5,72 @@ CREATE DATABASE crisma;
 CREATE TABLE salas (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) UNIQUE NOT NULL,
-    founder VARCHAR(100) NOT NULL
+    year VARCHAR(4) NOT NULL,
+    description TEXT, 
+    coordinator_name VARCHAR(100), 
+    coordinator_phone VARCHAR(20), 
+    coordinator_email VARCHAR(100), 
+    max_capacity INTEGER DEFAULT 30, 
+    meeting_day VARCHAR(20), 
+    meeting_time TIME, 
+    classroom_location VARCHAR(100),
+    status VARCHAR(20) DEFAULT 'active', 
+    start_date DATE, 
+    end_date DATE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE crismandos (
     id SERIAL PRIMARY KEY,
-    profile_photo VARCHAR(255),
     name VARCHAR(100) NOT NULL,
     surname VARCHAR(100) NOT NULL,
-    birthday DATE NOT NULL,
-    cep NUMBER NOT NULL,
-    road VARCHAR(50) NOT NULL,
-    house_number VARCHAR(10) NOT NULL,
+    birthday DATE,
+    cep VARCHAR(10),
+    road VARCHAR(100),
+    house_number VARCHAR(10),
     complement VARCHAR(50),
-    neighborhood VARCHAR(100) NOT NULL,
-    city VARCHAR(50) NOT NULL,
+    neighborhood VARCHAR(100),
+    city VARCHAR(50),
     phone_number VARCHAR(20) NOT NULL,
-    instagram VARCHAR(30) NOT NULL,
-    email VARCHAR(60) NOT NULL,
-    password VARCHAR(30) NOT NULL,
+    instagram VARCHAR(50),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL, 
     responsible_person VARCHAR(100),
     responsible_person_phone VARCHAR(20),
-    baptismal_certificate VARCHAR(255),
-    certificate_first_communion
-    rg VARCHAR(255),
+    baptismal_certificate VARCHAR(255), 
+    certificate_first_communion VARCHAR(255), 
+    rg VARCHAR(20),
+    profile_photo VARCHAR(255), 
+    enrollment_date DATE DEFAULT CURRENT_DATE,
+    status VARCHAR(20) DEFAULT 'active',
     sala_id INTEGER NOT NULL REFERENCES salas(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO salas (name, founder) VALUES 
-    ('Grifinória', 'Godric Gryffindor'),
-    ('Sonserina', 'Salazar Slytherin'),
-    ('Corvinal', 'Rowena Ravenclaw'),
-    ('Lufa-Lufa', 'Helga Hufflepuff');
+CREATE TABLE banner_carrocel (
+    id SERIAL PRIMARY KEY,
+    day_time_start DATE NOT NULL,
+    day_time_end DATE NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    time_start TIME NOT NULL,
+    time_end TIME NOT NULL,
+    localization VARCHAR(100) NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
+    about_event TEXT NOT NULL,
+    location VARCHAR(50) NOT NULL,
+    address VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-INSERT INTO crismandos (name, sala_id) VALUES 
-    ('Harry Potter', 1),
-    ('Draco Malfoy', 2),
-    ('Luna Lovegood', 3),
-    ('Cedrico Diggory', 4);
+INSERT INTO salas (name, year, description, coordinator_name, meeting_day, meeting_time, max_capacity) VALUES 
+    ('Turma São Francisco', '2024', 'Turma de crisma com foco na espiritualidade franciscana', 'Padre João Silva', 'Sábado', '14:00:00', 25),
+    ('Turma Santa Clara', '2024', 'Turma de crisma inspirada em Santa Clara de Assis', 'Catequista Maria Santos', 'Domingo', '15:30:00', 30),
+    ('Turma São José', '2024', 'Turma de crisma dedicada a São José', 'Diácono Pedro Costa', 'Sábado', '16:00:00', 20);
+
+INSERT INTO crismandos (name, surname, email, password, phone_number, sala_id) VALUES 
+    ('João', 'Silva', 'joao.silva@email.com', 'senha123', '(11) 99999-1111', 1),
+    ('Maria', 'Santos', 'maria.santos@email.com', 'senha456', '(11) 99999-2222', 1),
+    ('Pedro', 'Costa', 'pedro.costa@email.com', 'senha789', '(11) 99999-3333', 2);
