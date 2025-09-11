@@ -1,6 +1,6 @@
-CREATE DATABASE hp;
+CREATE DATABASE crisma;
 
-\c hp; 
+\c crisma; 
 
 CREATE TABLE salas (
     id SERIAL PRIMARY KEY,
@@ -8,9 +8,14 @@ CREATE TABLE salas (
     founder VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE wizards (
+CREATE TABLE crismandos (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
+    surname VARCHAR(100) NOT NULL,
+    birthday DATE NOT NULL,
+    cep NUMBER NOT NULL,
+    road
+    house_number VANCHAR NOT NULL,
     sala_id INTEGER NOT NULL REFERENCES salas(id) ON DELETE CASCADE,
     photo VARCHAR(255)
 );
@@ -21,7 +26,7 @@ INSERT INTO salas (name, founder) VALUES
     ('Corvinal', 'Rowena Ravenclaw'),
     ('Lufa-Lufa', 'Helga Hufflepuff');
 
-INSERT INTO wizards (name, sala_id) VALUES 
+INSERT INTO crismandos (name, sala_id) VALUES 
     ('Harry Potter', 1),
     ('Draco Malfoy', 2),
     ('Luna Lovegood', 3),
