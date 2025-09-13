@@ -5,7 +5,17 @@ const getAllCrismandos = async (req, res) => {
         const crismandos = await crismandoModel.getCrismandos();
         res.json(crismandos);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao buscar Crismando!" });
+        res.status(500).json({ message: "Erro ao buscar crismandos!" });
+    }
+};
+
+const getCrismandosByTurma = async (req, res) => {
+    try {
+        const { turma_id } = req.params;
+        const crismandos = await crismandoModel.getCrismandosByTurma(turma_id);
+        res.json(crismandos);
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao buscar crismandos da turma!" });
     }
 };
 
@@ -17,47 +27,55 @@ const getCrismando = async (req, res) => {
         }
         res.json(crismando);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao buscar Crismando!" });
+        res.status(500).json({ message: "Erro ao buscar crismando!" });
     }
 };
 
 const createCrismando = async (req, res) => {
-    console.log("Controller - req.body:", req.body);
     try {
-        const { name, sala_id } = req.body;
-        const sala_id_number = parseInt(sala_id);
-        console.log("Controller - name:", name, "sala_id:", sala_id_number);
-        
-        const photo = req.file ? req.file.filename : null;
-        const newCrismando = await crismandoModel.createCrismando(name, sala_id_number, photo);
-        console.log("Controller - crismando criado:", newCrismando);
+        const crismandoData = req.body;
+        const newCrismando = await crismandoModel.createCrismando(crismandoData);
         res.status(201).json(newCrismando);
     } catch (error) {
-        console.log("Controller - erro:", error.message);
         res.status(500).json({ message: "Erro ao criar crismando!", error: error.message });
     }
 };
 
 const updateCrismando = async (req, res) => {
     try {
-        const { name, sala_id } = req.body;
-        const updatedCrismando = await crismandoModel.updateCrismando(req.params.id, name, sala_id);
+        const crismandoData = req.body;
+        console.log(`🔄 Atualizando crismando ID ${req.params.id} com dados:`, crismandoData);
+        
+        const updatedCrismando = await crismandoModel.updateCrismando(req.params.id, crismandoData);
         if (!updatedCrismando) {
             return res.status(404).json({ message: "Crismando não encontrado!" });
         }
         res.json(updatedCrismando);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao atualizar Crismando!" });
+        console.error("❌ Erro ao atualizar crismando:", error.message);
+        res.status(500).json({ message: "Erro ao atualizar crismando!", error: error.message });
     }
 };
 
 const deleteCrismando = async (req, res) => {
     try {
-        const message = await crismandoModel.deleteCrismando(req.params.id);
-        res.json(message);
+        const result = await crismandoModel.deleteCrismando(req.params.id);
+        
+        if (result.error) {
+            return res.status(404).json(result);
+        }
+        
+        res.status(200).json(result);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao deletar Crismando!" });
+        res.status(500).json({ message: "Erro ao deletar crismando!" });
     }
 };
 
-module.exports = { getAllCrismandos, getCrismando, createCrismando, updateCrismando, deleteCrismando };
+module.exports = { 
+    getAllCrismandos, 
+    getCrismandosByTurma, 
+    getCrismando, 
+    createCrismando, 
+    updateCrismando, 
+    deleteCrismando 
+};
