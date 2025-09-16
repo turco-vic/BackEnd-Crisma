@@ -12,7 +12,7 @@ const getPresencas = async () => {
         LEFT JOIN crismandos c ON p.crismando_id = c.id
         LEFT JOIN encontros e ON p.encontro_id = e.id
         LEFT JOIN turmas t ON e.turma_id = t.id
-        ORDER BY p.data_registro DESC
+        ORDER BY p.id ASC
     `);
     return result.rows;
 };

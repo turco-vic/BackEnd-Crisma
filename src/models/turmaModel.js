@@ -7,7 +7,7 @@ const getTurmas = async () => {
         FROM turmas t 
         LEFT JOIN crismandos c ON t.id = c.turma_id 
         GROUP BY t.id
-        ORDER BY t.name
+        ORDER BY t.id ASC
     `);
     return result.rows;
 };
