@@ -26,14 +26,8 @@ const options = {
 const swaggerSpec = swaggerJsdoc(options);
 
 const setupSwagger = (app) => {
-  // Servir arquivos estáticos primeiro
-  app.use('/doc/custom', require('express').static('public'));
-
-  const swaggerUiAssetPath = require('swagger-ui-dist/absolute-path');
-  const customCssUrl = '/doc/custom/swagger-custom.css';
-  
-  const swaggerOptions = {
-    customCss: `
+  const customHtml = `
+    <style id="custom-swagger-styles">
       .swagger-ui .topbar { display: none !important; }
       
       .swagger-ui .opblock.opblock-get { 
@@ -41,43 +35,48 @@ const setupSwagger = (app) => {
         background: rgba(40, 167, 69, 0.1) !important;
         border-left: 5px solid #28a745 !important;
       }
-      .swagger-ui .opblock.opblock-get .opblock-summary-method {
-        background: #28a745 !important;
-        color: #fff !important;
-        border-color: #28a745 !important;
-      }
-      
       .swagger-ui .opblock.opblock-post { 
+        border-color: #28a745 !important; 
+        background: rgba(40, 167, 69, 0.1) !important;
+        border-left: 5px solid #28a745 !important;
+      }
+      .swagger-ui .opblock.opblock-put { 
         border-color: #fd7e14 !important; 
         background: rgba(253, 126, 20, 0.1) !important;
         border-left: 5px solid #fd7e14 !important;
       }
-      .swagger-ui .opblock.opblock-post .opblock-summary-method {
-        background: #fd7e14 !important;
-        color: #fff !important;
-        border-color: #fd7e14 !important;
-      }
-      
-      .swagger-ui .opblock.opblock-put { 
-        border-color: #007bff !important; 
-        background: rgba(0, 123, 255, 0.1) !important;
-        border-left: 5px solid #007bff !important;
-      }
-      .swagger-ui .opblock.opblock-put .opblock-summary-method {
-        background: #007bff !important;
-        color: #fff !important;
-        border-color: #007bff !important;
-      }
-      
       .swagger-ui .opblock.opblock-delete { 
         border-color: #dc3545 !important; 
         background: rgba(220, 53, 69, 0.1) !important;
         border-left: 5px solid #dc3545 !important;
       }
-      .swagger-ui .opblock.opblock-delete .opblock-summary-method {
-        background: #dc3545 !important;
+      .swagger-ui .opblock.opblock-get .opblock-summary-method,
+      .swagger-ui .opblock-get .opblock-summary .opblock-summary-method {
+        background-color: #28a745 !important;
+        background: #28a745 !important;
+        border-color: #28a745 !important;
         color: #fff !important;
+      }
+      .swagger-ui .opblock.opblock-post .opblock-summary-method,
+      .swagger-ui .opblock-post .opblock-summary .opblock-summary-method {
+        background-color: #28a745 !important;
+        background: #28a745 !important;
+        border-color: #28a745 !important;
+        color: #fff !important;
+      }
+      .swagger-ui .opblock.opblock-put .opblock-summary-method,
+      .swagger-ui .opblock-put .opblock-summary .opblock-summary-method {
+        background-color: #fd7e14 !important;
+        background: #fd7e14 !important;
+        border-color: #fd7e14 !important;
+        color: #fff !important;
+      }
+      .swagger-ui .opblock.opblock-delete .opblock-summary-method,
+      .swagger-ui .opblock-delete .opblock-summary .opblock-summary-method {
+        background-color: #dc3545 !important;
+        background: #dc3545 !important;
         border-color: #dc3545 !important;
+        color: #fff !important;
       }
       
       .swagger-ui .opblock { 
@@ -91,61 +90,89 @@ const setupSwagger = (app) => {
         min-width: 80px !important;
         text-align: center !important;
       }
-    `,
-    customJs: `
-      <script>
-        function forceMethodColors() {
-          // GET - Verde
-          document.querySelectorAll('.opblock-get .opblock-summary-method').forEach(el => {
-            el.style.setProperty('background-color', '#28a745', 'important');
-            el.style.setProperty('border-color', '#28a745', 'important');
-            el.style.setProperty('color', '#fff', 'important');
+    </style>
+    
+    <script>
+      let colorApplied = false;
+      
+      function aggressiveColorForce() {
+        console.log('🎨 Aplicando cores corretas forçadamente...');
+        
+        // GET - Verde #28a745 (correto)
+        document.querySelectorAll('.opblock-get .opblock-summary-method').forEach((el, index) => {
+          el.style.cssText += 'background-color: #28a745 !important; background: #28a745 !important; border-color: #28a745 !important; color: #fff !important;';
+          console.log('✅ Verde aplicado em GET', index);
+        });
+        
+        // POST - Verde #28a745 (como você quer)
+        document.querySelectorAll('.opblock-post .opblock-summary-method').forEach((el, index) => {
+          el.style.cssText += 'background-color: #28a745 !important; background: #28a745 !important; border-color: #28a745 !important; color: #fff !important;';
+          console.log('� Verde aplicado em POST', index);
+        });
+        
+        // PUT - Laranja #fd7e14 (como você quer)
+        document.querySelectorAll('.opblock-put .opblock-summary-method').forEach((el, index) => {
+          el.style.cssText += 'background-color: #fd7e14 !important; background: #fd7e14 !important; border-color: #fd7e14 !important; color: #fff !important;';
+          console.log('� Laranja aplicado em PUT', index);
+        });
+        
+        // DELETE - Vermelho #dc3545 (correto)
+        document.querySelectorAll('.opblock-delete .opblock-summary-method').forEach((el, index) => {
+          el.style.cssText += 'background-color: #dc3545 !important; background: #dc3545 !important; border-color: #dc3545 !important; color: #fff !important;';
+          console.log('🔴 Vermelho aplicado em DELETE', index);
+        });
+        
+        colorApplied = true;
+      }
+      
+      function initColors() {
+        aggressiveColorForce();
+        setTimeout(aggressiveColorForce, 50);
+        setTimeout(aggressiveColorForce, 100);
+        setTimeout(aggressiveColorForce, 200);
+        setTimeout(aggressiveColorForce, 500);
+        setTimeout(aggressiveColorForce, 1000);
+        setTimeout(aggressiveColorForce, 2000);
+      }
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initColors);
+      } else {
+        initColors();
+      }
+      
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.addedNodes.length > 0) {
+            setTimeout(aggressiveColorForce, 10);
+          }
+        });
+      });
+      
+      function startObserver() {
+        if (document.body) {
+          observer.observe(document.body, { 
+            childList: true, 
+            subtree: true, 
+            attributes: true,
+            attributeFilter: ['style', 'class']
           });
-          
-          // POST - Laranja
-          document.querySelectorAll('.opblock-post .opblock-summary-method').forEach(el => {
-            el.style.setProperty('background-color', '#fd7e14', 'important');
-            el.style.setProperty('border-color', '#fd7e14', 'important');
-            el.style.setProperty('color', '#fff', 'important');
-          });
-          
-          // PUT - Azul
-          document.querySelectorAll('.opblock-put .opblock-summary-method').forEach(el => {
-            el.style.setProperty('background-color', '#007bff', 'important');
-            el.style.setProperty('border-color', '#007bff', 'important');
-            el.style.setProperty('color', '#fff', 'important');
-          });
-          
-          // DELETE - Vermelho
-          document.querySelectorAll('.opblock-delete .opblock-summary-method').forEach(el => {
-            el.style.setProperty('background-color', '#dc3545', 'important');
-            el.style.setProperty('border-color', '#dc3545', 'important');
-            el.style.setProperty('color', '#fff', 'important');
-          });
+        } else {
+          setTimeout(startObserver, 50);
         }
-        
-        // Aplicar as cores quando carregar
-        window.addEventListener('load', function() {
-          setTimeout(forceMethodColors, 100);
-          setTimeout(forceMethodColors, 500);
-          setTimeout(forceMethodColors, 1000);
-        });
-        
-        // Observer para novos elementos
-        const observer = new MutationObserver(forceMethodColors);
-        document.addEventListener('DOMContentLoaded', function() {
-          observer.observe(document.body, { childList: true, subtree: true });
-        });
-      </script>
-    `,
+      }
+      startObserver();
+    </script>
+  `;
+
+  app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+    customCss: '',
+    customJs: customHtml,
     customSiteTitle: 'API Sistema de Crisma',
     swaggerOptions: {
       persistAuthorization: true,
     }
-  };
-
-  app.use('/doc', swaggerUi.serve);
-  app.get('/doc', swaggerUi.setup(swaggerSpec, swaggerOptions));
+  }));
   
   console.log('📚 Documentação Swagger disponível em: http://localhost:3000/doc');
 };
