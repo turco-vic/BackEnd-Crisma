@@ -5,7 +5,7 @@ const getCrismandos = async () => {
         SELECT c.*, t.name as turma_name 
         FROM crismandos c 
         LEFT JOIN turmas t ON c.turma_id = t.id 
-        ORDER BY c.id ASC
+        ORDER BY c.name, c.surname
     `);
     return result.rows;
 };
@@ -21,7 +21,7 @@ const getCrismandosByTurma = async (turma_id) => {
         LEFT JOIN presencas p ON c.id = p.crismando_id
         WHERE c.turma_id = $1 
         GROUP BY c.id, t.name
-        ORDER BY c.id ASC
+        ORDER BY c.name, c.surname
     `, [turma_id]);
     return result.rows;
 };
@@ -40,22 +40,19 @@ const createCrismando = async (crismandoData) => {
     const {
         name, surname, birthday, cep, road, house_number, complement,
         neighborhood, city, phone_number, instagram, email, password,
-        responsible_person, responsible_person_phone, baptismal_certificate,
-        certificate_first_communion, rg, profile_photo, turma_id
+        responsible_person, responsible_person_phone, rg, turma_id
     } = crismandoData;
     
     const result = await pool.query(`
         INSERT INTO crismandos (
             name, surname, birthday, cep, road, house_number, complement,
             neighborhood, city, phone_number, instagram, email, password,
-            responsible_person, responsible_person_phone, baptismal_certificate,
-            certificate_first_communion, rg, profile_photo, turma_id
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) 
+            responsible_person, responsible_person_phone, rg, turma_id
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) 
         RETURNING *
     `, [name, surname, birthday, cep, road, house_number, complement,
         neighborhood, city, phone_number, instagram, email, password,
-        responsible_person, responsible_person_phone, baptismal_certificate,
-        certificate_first_communion, rg, profile_photo, turma_id]);
+        responsible_person, responsible_person_phone, rg, turma_id]);
     
     return result.rows[0];
 };

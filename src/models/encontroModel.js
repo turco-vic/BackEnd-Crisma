@@ -5,7 +5,7 @@ const getEncontros = async () => {
         SELECT e.*, t.name as turma_name 
         FROM encontros e 
         LEFT JOIN turmas t ON e.turma_id = t.id 
-        ORDER BY e.id ASC
+        ORDER BY e.data_encontro, e.numero_encontro
     `);
     return result.rows;
 };
@@ -21,7 +21,7 @@ const getEncontrosByTurma = async (turma_id) => {
         LEFT JOIN presencas p ON e.id = p.encontro_id
         WHERE e.turma_id = $1 
         GROUP BY e.id, t.name
-        ORDER BY e.id ASC
+        ORDER BY e.numero_encontro
     `, [turma_id]);
     return result.rows;
 };
