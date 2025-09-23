@@ -1,0 +1,75 @@
+.swagger-ui .topbar { 
+  display: none !important; 
+}
+
+.swagger-ui .opblock.opblock-get {
+  border-color: #28a745 !important;
+  background: rgba(40, 167, 69, 0.1) !important;
+}
+
+.swagger-ui .opblock.opblock-get .opblock-summary-method {
+  background: #28a745 !important;
+  color: #fff !important;
+}
+
+.swagger-ui .opblock.opblock-get .opblock-summary {
+  border-color: #28a745 !important;
+}
+
+.swagger-ui .opblock.opblock-post {
+  border-color: #fd7e14 !important;
+  background: rgba(253, 126, 20, 0.1) !important;
+}
+
+.swagger-ui .opblock.opblock-post .opblock-summary-method {
+  background: #fd7e14 !important;
+  color: #fff !important;
+}
+
+.swagger-ui .opblock.opblock-post .opblock-summary {
+  border-color: #fd7e14 !important;
+}
+
+.swagger-ui .opblock.opblock-put {
+  border-color: #007bff !important;
+  background: rgba(0, 123, 255, 0.1) !important;
+}
+
+.swagger-ui .opblock.opblock-put .opblock-summary-method {
+  background: #007bff !important;
+  color: #fff !important;
+}
+
+.swagger-ui .opblock.opblock-put .opblock-summary {
+  border-color: #007bff !important;
+}
+
+.swagger-ui .opblock.opblock-delete {
+  border-color: #dc3545 !important;
+  background: rgba(220, 53, 69, 0.1) !important;
+}
+
+.swagger-ui .opblock.opblock-delete .opblock-summary-method {
+  background: #dc3545 !important;
+  color: #fff !important;
+}
+
+.swagger-ui .opblock.opblock-delete .opblock-summary {
+  border-color: #dc3545 !important;
+}
+
+.swagger-ui .opblock.opblock-get:hover {
+  border-color: #1e7e34 !important;
+}
+
+.swagger-ui .opblock.opblock-post:hover {
+  border-color: #e55a00 !important;
+}
+
+.swagger-ui .opblock.opblock-put:hover {
+  border-color: #0056b3 !important;
+}
+
+.swagger-ui .opblock.opblock-delete:hover {
+  border-color: #bd2130 !important;
+}
