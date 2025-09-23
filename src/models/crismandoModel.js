@@ -44,7 +44,7 @@ const createCrismando = async (crismandoData) => {
         neighborhood, city, phone_number, instagram, email, password,
         responsible_person, responsible_person_phone, rg, turma_id
     } = crismandoData;
-    
+
     const result = await pool.query(`
         INSERT INTO crismandos (
             name, surname, birthday, cep, road, house_number, complement,
@@ -55,7 +55,7 @@ const createCrismando = async (crismandoData) => {
     `, [name, surname, birthday, cep, road, house_number, complement,
         neighborhood, city, phone_number, instagram, email, password,
         responsible_person, responsible_person_phone, rg, turma_id]);
-    
+
     return result.rows[0];
 };
 
@@ -65,7 +65,7 @@ const updateCrismando = async (id, crismandoData) => {
         neighborhood, city, phone_number, instagram, email,
         responsible_person, responsible_person_phone, rg, turma_id, status
     } = crismandoData;
-    
+
     const result = await pool.query(`
         UPDATE crismandos SET 
             name = $1, surname = $2, birthday = $3, cep = $4, road = $5, 
@@ -78,7 +78,7 @@ const updateCrismando = async (id, crismandoData) => {
     `, [name, surname, birthday, cep, road, house_number, complement,
         neighborhood, city, phone_number, instagram, email,
         responsible_person, responsible_person_phone, rg, turma_id, status, id]);
-    
+
     return result.rows[0];
 };
 

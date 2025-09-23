@@ -7,10 +7,6 @@ CREATE TABLE turmas (
     name VARCHAR(100) UNIQUE NOT NULL,
     year VARCHAR(4) NOT NULL,
     description TEXT, 
-    coordinator_name VARCHAR(100), 
-    coordinator_phone VARCHAR(20), 
-    coordinator_email VARCHAR(100), 
-    max_capacity INTEGER DEFAULT 30, 
     meeting_day VARCHAR(20), 
     meeting_time TIME, 
     classroom_location VARCHAR(100),
@@ -93,14 +89,26 @@ CREATE TABLE presencas (
     UNIQUE(crismando_id, encontro_id)
 );
 
+CREATE TABLE coordenadores (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    sobrenome VARCHAR(100) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    foto_perfil VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 INSERT INTO turmas (
-    name, year, description, coordinator_name, coordinator_phone, coordinator_email, max_capacity, meeting_day, meeting_time, classroom_location, status, start_date, end_date, created_at, updated_at
+    name, year, description, meeting_day, meeting_time, classroom_location, status, start_date, end_date, created_at, updated_at
 ) VALUES
-    ('Turma São Francisco', '2024', 'Turma de crisma com foco na espiritualidade franciscana', 'Padre João Silva', '(11) 90000-0001', 'padrejoao@email.com', 25, 'Sábado', '14:00:00', 'Sala 1', 'active', '2024-02-01', '2024-12-01', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('Turma Santa Clara', '2024', 'Turma de crisma inspirada em Santa Clara de Assis', 'Catequista Maria Santos', '(11) 90000-0002', 'maria.santos@email.com', 30, 'Domingo', '15:30:00', 'Sala 2', 'active', '2024-02-02', '2024-12-02', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('Turma São José', '2024', 'Turma de crisma dedicada a São José', 'Diácono Pedro Costa', '(11) 90000-0003', 'pedro.costa@email.com', 20, 'Sábado', '16:00:00', 'Sala 3', 'active', '2024-02-03', '2024-12-03', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('Turma Santa Rita', '2025', 'Turma de crisma dedicada a Santa Rita', 'Catequista Rita Lopes', '(11) 90000-0004', 'rita.lopes@email.com', 28, 'Sábado', '10:00:00', 'Sala 4', 'active', '2025-02-01', '2025-12-01', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('Turma São Paulo', '2025', 'Turma de crisma dedicada a São Paulo', 'Padre Paulo Lima', '(11) 90000-0005', 'paulo.lima@email.com', 22, 'Domingo', '09:00:00', 'Sala 5', 'active', '2025-02-02', '2025-12-02', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    ('Turma São Francisco', '2024', 'Turma de crisma com foco na espiritualidade franciscana', 'Sábado', '14:00:00', 'Sala 1', 'active', '2024-02-01', '2024-12-01', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Turma Santa Clara', '2024', 'Turma de crisma inspirada em Santa Clara de Assis', 'Domingo', '15:30:00', 'Sala 2', 'active', '2024-02-02', '2024-12-02', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Turma São José', '2024', 'Turma de crisma dedicada a São José', 'Sábado', '16:00:00', 'Sala 3', 'active', '2024-02-03', '2024-12-03', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Turma Santa Rita', '2025', 'Turma de crisma dedicada a Santa Rita', 'Sábado', '10:00:00', 'Sala 4', 'active', '2025-02-01', '2025-12-01', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Turma São Paulo', '2025', 'Turma de crisma dedicada a São Paulo', 'Domingo', '09:00:00', 'Sala 5', 'active', '2025-02-02', '2025-12-02', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO crismandos (
     name, surname, birthday, cep, road, house_number, complement, neighborhood, city, phone_number, instagram, email, password, responsible_person, responsible_person_phone, baptismal_certificate, certificate_first_communion, rg, profile_photo, enrollment_date, status, turma_id
@@ -141,3 +149,12 @@ INSERT INTO presencas (
     (3, 2, TRUE, NULL, 'Participou normalmente', CURRENT_TIMESTAMP),
     (4, 3, TRUE, NULL, 'Participou normalmente', CURRENT_TIMESTAMP),
     (5, 4, FALSE, 'Viagem', 'Faltou por viagem', CURRENT_TIMESTAMP);
+
+    INSERT INTO coordenadores (
+    nome, sobrenome, telefone, email, senha, foto_perfil, created_at, updated_at
+) VALUES
+    ('João', 'Silva', '(11) 90000-0001', 'joao.silva@exemplo.com', 'senha123', 'joao.png', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Maria', 'Santos', '(11) 90000-0002', 'maria.santos@exemplo.com', 'senha456', 'maria.png', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Pedro', 'Costa', '(11) 90000-0003', 'pedro.costa@exemplo.com', 'senha789', 'pedro.png', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Ana', 'Oliveira', '(11) 90000-0004', 'ana.oliveira@exemplo.com', 'senha101', 'ana.png', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Lucas', 'Ferreira', '(11) 90000-0005', 'lucas.ferreira@exemplo.com', 'senha202', 'lucas.png', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
