@@ -9,7 +9,7 @@ CREATE TABLE turmas (
     description TEXT, 
     meeting_day VARCHAR(20), 
     meeting_time TIME, 
-    location VARCHAR(100),
+    classroom_location VARCHAR(100),
     status VARCHAR(20) DEFAULT 'active', 
     start_date DATE, 
     end_date DATE,
@@ -102,7 +102,7 @@ CREATE TABLE coordenadores (
 );
 
 INSERT INTO turmas (
-    name, year, description, meeting_day, meeting_time, location, status, start_date, end_date, created_at, updated_at
+    name, year, description, meeting_day, meeting_time, classroom_location, status, start_date, end_date, created_at, updated_at
 ) VALUES
     ('Turma São Francisco', '2024', 'Turma de crisma com foco na espiritualidade franciscana', 'Sábado', '14:00:00', 'Sala 1', 'active', '2024-02-01', '2024-12-01', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
     ('Turma Santa Clara', '2024', 'Turma de crisma inspirada em Santa Clara de Assis', 'Domingo', '15:30:00', 'Sala 2', 'active', '2024-02-02', '2024-12-02', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
