@@ -14,7 +14,8 @@ CREATE TABLE turmas (
     start_date DATE, 
     end_date DATE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    numero_crismandos INTEGER DEFAULT 0
 );
 
 CREATE TABLE crismandos (
@@ -153,7 +154,7 @@ INSERT INTO presencas (
     INSERT INTO coordenadores (
     nome, sobrenome, telefone, email, senha, foto_perfil, created_at, updated_at
 ) VALUES
-    ('João', 'Silva', '(11) 90000-0001', 'joao.silva@exemplo.com', 'senha123', 'joao.png', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Enzo', 'Turcovic', '(11) 90000-0001', 'enzo.turcovic@exemplo.com', 'senha123', 'enzo.png', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
     ('Maria', 'Santos', '(11) 90000-0002', 'maria.santos@exemplo.com', 'senha456', 'maria.png', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
     ('Pedro', 'Costa', '(11) 90000-0003', 'pedro.costa@exemplo.com', 'senha789', 'pedro.png', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
     ('Ana', 'Oliveira', '(11) 90000-0004', 'ana.oliveira@exemplo.com', 'senha101', 'ana.png', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
