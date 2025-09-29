@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const crismandoRoutes = require("./src/routes/crismandoRoutes");
+const coordenadorRoutes = require("./src/routes/coordenadorRoutes");
 const turmaRoutes = require("./src/routes/turmaRoutes");
 const encontroRoutes = require("./src/routes/encontroRoutes");
 const presencaRoutes = require("./src/routes/presencaRoutes");
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 
 console.log("🔧 Registrando rotas...");
 app.use("/api/crismandos", crismandoRoutes);
+app.use("/api/coordenadores", coordenadorRoutes);
 app.use("/api/turmas", turmaRoutes);
 app.use("/api/encontros", encontroRoutes);
 app.use("/api/presencas", presencaRoutes);
