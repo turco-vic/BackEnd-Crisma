@@ -7,7 +7,7 @@ const options = {
     info: {
       title: 'API Sistema de Crisma',
       version: '2.0.0',
-      description: 'API completa para gerenciamento do sistema de crisma com turmas, crismandos, encontros e controle de presenças',
+      description: 'API completa para gerenciamento do sistema de crisma com turmas, crismandos, coordenadores, encontros e controle de presenças',
       contact: {
         name: 'Enzo Turcovic',
         email: 'enzoturcovic@gmail.com'
