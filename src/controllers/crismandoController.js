@@ -36,7 +36,37 @@ const getCrismando = async (req, res) => {
 
 const createCrismando = async (req, res) => {
     try {
-        const crismandoData = req.body;
+        console.log('Arquivos recebidos:', req.files);
+        const baptismal_certificate = req.files && req.files['baptismal_certificate'] ? req.files['baptismal_certificate'][0].filename : null;
+        const certificate_first_communion = req.files && req.files['certificate_first_communion'] ? req.files['certificate_first_communion'][0].filename : null;
+        const profile_photo = req.files && req.files['profile_photo'] ? req.files['profile_photo'][0].filename : null;
+        const rg = req.files && req.files['rg'] ? req.files['rg'][0].filename : null;
+
+        const crismandoData = {
+            name: req.body.name || '',
+            surname: req.body.surname || '',
+            birthday: req.body.birthday || '',
+            cep: req.body.cep || '',
+            road: req.body.road || '',
+            house_number: req.body.house_number || '',
+            complement: req.body.complement || '',
+            neighborhood: req.body.neighborhood || '',
+            city: req.body.city || '',
+            phone_number: req.body.phone_number || '',
+            instagram: req.body.instagram || '',
+            email: req.body.email || '',
+            password: req.body.password || '',
+            responsible_person: req.body.responsible_person || '',
+            responsible_person_phone: req.body.responsible_person_phone || '',
+            baptismal_certificate,
+            certificate_first_communion,
+            rg,
+            profile_photo,
+            turma_id: req.body.turma_id || null,
+            enrollment_date: req.body.enrollment_date || new Date().toISOString().slice(0, 10),
+            status: req.body.status || 'active'
+        };
+
         const newCrismando = await crismandoModel.createCrismando(crismandoData);
         res.status(201).json(newCrismando);
     } catch (error) {

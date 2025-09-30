@@ -11,14 +11,26 @@ const storage = multer.diskStorage({
     },
 });
 
+
 const upload = multer({
     storage,
     fileFilter: (req, file, cb) => {
-        const ext = path.extname(file.originalname);
-        if (ext !== ".jpg" && ext !== ".jpeg" && ext !== ".png") {
-            return cb(new Error("Apenas imagens são permitidas: JPG, JPEG e PNG"));
+        const ext = path.extname(file.originalname).toLowerCase();
+        if (
+            ext !== ".jpg" &&
+            ext !== ".jpeg" &&
+            ext !== ".png" &&
+            ext !== ".pdf"
+        ) {
+            return cb(new Error("Apenas imagens (JPG, JPEG, PNG) ou PDF são permitidos"));
         }
         cb(null, true);
     }
 });
-module.exports = upload;
+
+module.exports = upload.fields([
+    { name: 'profile_photo', maxCount: 1 },
+    { name: 'baptismal_certificate', maxCount: 1 },
+    { name: 'certificate_first_communion', maxCount: 1 },
+    { name: 'rg', maxCount: 1 }
+]);

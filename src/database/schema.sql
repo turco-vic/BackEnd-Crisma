@@ -36,11 +36,11 @@ CREATE TABLE crismandos (
     responsible_person_phone VARCHAR(20) NOT NULL,
     baptismal_certificate VARCHAR(255) NOT NULL, 
     certificate_first_communion VARCHAR(255) NOT NULL, 
-    rg VARCHAR(20) NOT NULL,
+    rg VARCHAR(255) NOT NULL,
     profile_photo VARCHAR(255), 
     enrollment_date DATE DEFAULT CURRENT_DATE,
     status VARCHAR(20) DEFAULT 'active',
-    turma_id INTEGER NOT NULL REFERENCES turmas(id) ON DELETE CASCADE,
+    turma_id INTEGER REFERENCES turmas(id) ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

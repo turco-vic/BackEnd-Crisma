@@ -42,19 +42,26 @@ const createCrismando = async (crismandoData) => {
     const {
         name, surname, birthday, cep, road, house_number, complement,
         neighborhood, city, phone_number, instagram, email, password,
-        responsible_person, responsible_person_phone, rg, turma_id
+        responsible_person, responsible_person_phone, baptismal_certificate,
+        certificate_first_communion, rg, profile_photo, turma_id,
+        enrollment_date, status
     } = crismandoData;
 
     const result = await pool.query(`
         INSERT INTO crismandos (
             name, surname, birthday, cep, road, house_number, complement,
             neighborhood, city, phone_number, instagram, email, password,
-            responsible_person, responsible_person_phone, rg, turma_id
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) 
-        RETURNING *
-    `, [name, surname, birthday, cep, road, house_number, complement,
+            responsible_person, responsible_person_phone, baptismal_certificate,
+            certificate_first_communion, rg, profile_photo, enrollment_date, status, turma_id
+        ) VALUES (
+            $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22
+        ) RETURNING *
+    `, [
+        name, surname, birthday, cep, road, house_number, complement,
         neighborhood, city, phone_number, instagram, email, password,
-        responsible_person, responsible_person_phone, rg, turma_id]);
+        responsible_person, responsible_person_phone, baptismal_certificate,
+        certificate_first_communion, rg, profile_photo, enrollment_date, status, turma_id
+    ]);
 
     return result.rows[0];
 };

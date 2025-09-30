@@ -96,7 +96,7 @@ router.get("/:id", crismandoController.getCrismando);
  *       201:
  *         description: Crismando criado com sucesso
  */
-router.post("/", upload.single("profile_photo"), crismandoController.createCrismando);
+router.post("/", upload, crismandoController.createCrismando);
 
 /**
  * @swagger
@@ -116,6 +116,29 @@ router.post("/", upload.single("profile_photo"), crismandoController.createCrism
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - name
+ *               - surname
+ *               - birthday
+ *               - cep
+ *               - road
+ *               - house_number
+ *               - complement
+ *               - neighborhood
+ *               - city
+ *               - phone_number
+ *               - instagram
+ *               - email
+ *               - password
+ *               - responsible_person
+ *               - responsible_person_phone
+ *               - baptismal_certificate
+ *               - certificate_first_communion
+ *               - rg
+ *               - profile_photo
+ *               - enrollment_date
+ *               - status
+ *               - turma_id
  *             properties:
  *               name:
  *                 type: string
@@ -124,16 +147,47 @@ router.post("/", upload.single("profile_photo"), crismandoController.createCrism
  *               birthday:
  *                 type: string
  *                 format: date
+ *               cep:
+ *                 type: string
+ *               road:
+ *                 type: string
+ *               house_number:
+ *                 type: string
+ *               complement:
+ *                 type: string
+ *               neighborhood:
+ *                 type: string
+ *               city:
+ *                 type: string
  *               phone_number:
+ *                 type: string
+ *               instagram:
  *                 type: string
  *               email:
  *                 type: string
  *                 format: email
- *               turma_id:
- *                 type: integer
+ *               password:
+ *                 type: string
+ *               responsible_person:
+ *                 type: string
+ *               responsible_person_phone:
+ *                 type: string
+ *               baptismal_certificate:
+ *                 type: string
+ *               certificate_first_communion:
+ *                 type: string
+ *               rg:
+ *                 type: string
+ *               profile_photo:
+ *                 type: string
+ *               enrollment_date:
+ *                 type: string
+ *                 format: date
  *               status:
  *                 type: string
  *                 enum: [active, inactive]
+ *               turma_id:
+ *                 type: integer
  *     responses:
  *       200:
  *         description: Crismando atualizado com sucesso
