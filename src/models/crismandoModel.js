@@ -15,9 +15,9 @@ const getCrismandos = async () => {
 const getCrismandosByTurma = async (turma_id) => {
     const result = await pool.query(`
         SELECT c.*, t.name as turma_name,
-               COUNT(p.id) as total_encontros_registrados,
-               COUNT(CASE WHEN p.presente = true THEN 1 END) as total_presencas,
-               COUNT(CASE WHEN p.presente = false THEN 1 END) as total_faltas
+        COUNT(p.id) as total_encontros_registrados,
+        COUNT(CASE WHEN p.presente = true THEN 1 END) as total_presencas,
+        COUNT(CASE WHEN p.presente = false THEN 1 END) as total_faltas
         FROM crismandos c 
         LEFT JOIN turmas t ON c.turma_id = t.id 
         LEFT JOIN presencas p ON c.id = p.crismando_id
