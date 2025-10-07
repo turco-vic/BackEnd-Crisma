@@ -111,8 +111,6 @@ DB_NAME=crisma
 DB_USER=postgres
 DB_PASSWORD=sua_senha_aqui
 
-# Ambiente
-NODE_ENV=development
 ```
 
 **⚠️ Importante:** Substitua `sua_senha_aqui` pela senha que você definiu durante a instalação do PostgreSQL.
@@ -120,7 +118,7 @@ NODE_ENV=development
 ### 5. Estrutura de Pastas
 
 ```
-BackEnd-Crisma2/
+BackEnd-Crisma/
 ├── src/
 │   ├── config/
 │   │   ├── database.js      # Configuração do PostgreSQL
@@ -210,11 +208,7 @@ O sistema utiliza as seguintes tabelas principais:
 
 ## 📁 Upload de Arquivos
 
-O sistema suporta upload de arquivos (fotos de perfil, certificados) na pasta `uploads/`. Os arquivos são acessíveis via:
-
-```
-http://localhost:3000/uploads/nome_do_arquivo.ext
-```
+O sistema suporta upload de arquivos (fotos de perfil, certificados) na pasta `uploads/`.
 
 ## 🛠️ Scripts Disponíveis
 
