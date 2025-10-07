@@ -11,7 +11,13 @@ const path = require("path");
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ charset: 'utf-8' }));
+
+// Configurar charset UTF-8 para todas as respostas
+app.use((req, res, next) => {
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    next();
+});
 
 app.use((req, res, next) => {
     console.log(`📝 ${req.method} ${req.url}`);

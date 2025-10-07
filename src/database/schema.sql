@@ -104,21 +104,21 @@ CREATE TABLE coordenadores (
 INSERT INTO turmas (
     name, year, description, meeting_day, meeting_time, classroom_location, status, start_date, end_date, created_at, updated_at
 ) VALUES
-    ('Turma São Francisco', '2024', 'Turma de crisma com foco na espiritualidade franciscana', 'Sábado', '14:00:00', 'Sala 1', 'active', '2024-02-01', '2024-12-01', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Turma Sao Francisco', '2024', 'Turma de crisma com foco na espiritualidade franciscana', 'Sabado', '14:00:00', 'Sala 1', 'active', '2024-02-01', '2024-12-01', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
     ('Turma Santa Clara', '2024', 'Turma de crisma inspirada em Santa Clara de Assis', 'Domingo', '15:30:00', 'Sala 2', 'active', '2024-02-02', '2024-12-02', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('Turma São José', '2024', 'Turma de crisma dedicada a São José', 'Sábado', '16:00:00', 'Sala 3', 'active', '2024-02-03', '2024-12-03', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('Turma Santa Rita', '2025', 'Turma de crisma dedicada a Santa Rita', 'Sábado', '10:00:00', 'Sala 4', 'active', '2025-02-01', '2025-12-01', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('Turma São Paulo', '2025', 'Turma de crisma dedicada a São Paulo', 'Domingo', '09:00:00', 'Sala 5', 'active', '2025-02-02', '2025-12-02', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    ('Turma Sao Jose', '2024', 'Turma de crisma dedicada a Sao Jose', 'Sabado', '16:00:00', 'Sala 3', 'active', '2024-02-03', '2024-12-03', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Turma Santa Rita', '2025', 'Turma de crisma dedicada a Santa Rita', 'Sabado', '10:00:00', 'Sala 4', 'active', '2025-02-01', '2025-12-01', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('Turma Sao Paulo', '2025', 'Turma de crisma dedicada a Sao Paulo', 'Domingo', '09:00:00', 'Sala 5', 'active', '2025-02-02', '2025-12-02', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO crismandos (
     name, surname, birthday, cep, road, house_number, complement, neighborhood, city, phone_number, instagram, email, password, responsible_person, responsible_person_phone, baptismal_certificate, certificate_first_communion, rg, profile_photo, enrollment_date, status, turma_id
 ) VALUES
-    ('João', 'Silva', '2008-05-10', '01234-567', 'Rua das Flores', '123', 'Apto 1', 'Centro', 'São Paulo', '(11) 99999-1111', '@joaosilva', 'joao.silva@email.com', 'senha123', 'Carlos Silva', '(11) 98888-1111', 'cert_batismo_joao.pdf', 'cert_eucaristia_joao.pdf', '123456789', 'joao.png', '2024-02-01', 'active', 1),
-    ('Beatriz', 'Almeida', '2008-07-12', '01234-568', 'Rua das Rosas', '124', 'Casa', 'Centro', 'São Paulo', '(11) 99999-1112', '@beatrizalmeida', 'beatriz.almeida@email.com', 'senha124', 'Sandra Almeida', '(11) 98888-1112', 'cert_batismo_beatriz.pdf', 'cert_eucaristia_beatriz.pdf', '123456790', 'beatriz.png', '2024-02-01', 'active', 1),
-    ('Gabriel', 'Ribeiro', '2008-04-18', '01234-569', 'Rua das Violetas', '125', 'Apto 2', 'Centro', 'São Paulo', '(11) 99999-1113', '@gabrielribeiro', 'gabriel.ribeiro@email.com', 'senha125', 'Mario Ribeiro', '(11) 98888-1113', 'cert_batismo_gabriel.pdf', 'cert_eucaristia_gabriel.pdf', '123456791', 'gabriel.png', '2024-02-01', 'active', 1),
-    ('Sofia', 'Martins', '2008-06-25', '01234-570', 'Rua das Orquídeas', '126', NULL, 'Centro', 'São Paulo', '(11) 99999-1114', '@sofiamartins', 'sofia.martins@email.com', 'senha126', 'Lucia Martins', '(11) 98888-1114', 'cert_batismo_sofia.pdf', 'cert_eucaristia_sofia.pdf', '123456792', 'sofia.png', '2024-02-01', 'active', 1),
-    ('Rafael', 'Lima', '2008-03-14', '01234-571', 'Rua das Tulipas', '127', 'Casa', 'Centro', 'São Paulo', '(11) 99999-1115', '@rafaellima', 'rafael.lima@email.com', 'senha127', 'Jose Lima', '(11) 98888-1115', 'cert_batismo_rafael.pdf', 'cert_eucaristia_rafael.pdf', '123456793', 'rafael.png', '2024-02-01', 'active', 1),
-    ('Isabella', 'Carvalho', '2008-08-30', '01234-572', 'Rua das Margaridas', '128', 'Apto 3', 'Centro', 'São Paulo', '(11) 99999-1116', '@isabellacarvalho', 'isabella.carvalho@email.com', 'senha128', 'Regina Carvalho', '(11) 98888-1116', 'cert_batismo_isabella.pdf', 'cert_eucaristia_isabella.pdf', '123456794', 'isabella.png', '2024-02-01', 'active', 1),
+    ('Joao', 'Silva', '2008-05-10', '01234-567', 'Rua das Flores', '123', 'Apto 1', 'Centro', 'Sao Paulo', '(11) 99999-1111', '@joaosilva', 'joao.silva@email.com', 'senha123', 'Carlos Silva', '(11) 98888-1111', 'cert_batismo_joao.pdf', 'cert_eucaristia_joao.pdf', '123456789', 'joao.png', '2024-02-01', 'active', 1),
+    ('Beatriz', 'Almeida', '2008-07-12', '01234-568', 'Rua das Rosas', '124', 'Casa', 'Centro', 'Sao Paulo', '(11) 99999-1112', '@beatrizalmeida', 'beatriz.almeida@email.com', 'senha124', 'Sandra Almeida', '(11) 98888-1112', 'cert_batismo_beatriz.pdf', 'cert_eucaristia_beatriz.pdf', '123456790', 'beatriz.png', '2024-02-01', 'active', 1),
+    ('Gabriel', 'Ribeiro', '2008-04-18', '01234-569', 'Rua das Violetas', '125', 'Apto 2', 'Centro', 'Sao Paulo', '(11) 99999-1113', '@gabrielribeiro', 'gabriel.ribeiro@email.com', 'senha125', 'Mario Ribeiro', '(11) 98888-1113', 'cert_batismo_gabriel.pdf', 'cert_eucaristia_gabriel.pdf', '123456791', 'gabriel.png', '2024-02-01', 'active', 1),
+    ('Sofia', 'Martins', '2008-06-25', '01234-570', 'Rua das Orquideas', '126', NULL, 'Centro', 'Sao Paulo', '(11) 99999-1114', '@sofiamartins', 'sofia.martins@email.com', 'senha126', 'Lucia Martins', '(11) 98888-1114', 'cert_batismo_sofia.pdf', 'cert_eucaristia_sofia.pdf', '123456792', 'sofia.png', '2024-02-01', 'active', 1),
+    ('Rafael', 'Lima', '2008-03-14', '01234-571', 'Rua das Tulipas', '127', 'Casa', 'Centro', 'Sao Paulo', '(11) 99999-1115', '@rafaellima', 'rafael.lima@email.com', 'senha127', 'Jose Lima', '(11) 98888-1115', 'cert_batismo_rafael.pdf', 'cert_eucaristia_rafael.pdf', '123456793', 'rafael.png', '2024-02-01', 'active', 1),
+    ('Isabella', 'Carvalho', '2008-08-30', '01234-572', 'Rua das Margaridas', '128', 'Apto 3', 'Centro', 'Sao Paulo', '(11) 99999-1116', '@isabellacarvalho', 'isabella.carvalho@email.com', 'senha128', 'Regina Carvalho', '(11) 98888-1116', 'cert_batismo_isabella.pdf', 'cert_eucaristia_isabella.pdf', '123456794', 'isabella.png', '2024-02-01', 'active', 1),
 
     ('Maria', 'Santos', '2007-09-15', '02345-678', 'Av. Brasil', '456', NULL, 'Jardim', 'Guarulhos', '(11) 99999-2222', '@mariasantos', 'maria.santos@email.com', 'senha456', 'Ana Santos', '(11) 98888-2222', 'cert_batismo_maria.pdf', 'cert_eucaristia_maria.pdf', '987654321', 'maria.png', '2024-02-02', 'active', 2),
     ('Thiago', 'Pereira', '2007-11-20', '02345-679', 'Av. Paulista', '457', 'Sala 101', 'Jardim', 'Guarulhos', '(11) 99999-2223', '@thiagopereira', 'thiago.pereira@email.com', 'senha457', 'Fernando Pereira', '(11) 98888-2223', 'cert_batismo_thiago.pdf', 'cert_eucaristia_thiago.pdf', '987654322', 'thiago.png', '2024-02-02', 'active', 2),
@@ -134,12 +134,12 @@ INSERT INTO crismandos (
     ('Vitor', 'Pinto', '2008-02-28', '03456-793', 'Rua Lilás', '793', 'Bloco A', 'Vila Nova', 'Osasco', '(11) 99999-3337', '@vitorpinto', 'vitor.pinto@email.com', 'senha793', 'Eduardo Pinto', '(11) 98888-3337', 'cert_batismo_vitor.pdf', 'cert_eucaristia_vitor.pdf', '192837469', 'vitor.png', '2024-02-03', 'active', 3),
     ('Manuela', 'Freitas', '2008-01-12', '03456-794', 'Rua Branca', '794', 'Casa', 'Vila Nova', 'Osasco', '(11) 99999-3338', '@manuelafreitas', 'manuela.freitas@email.com', 'senha794', 'Vanessa Freitas', '(11) 98888-3338', 'cert_batismo_manuela.pdf', 'cert_eucaristia_manuela.pdf', '192837470', 'manuela.png', '2024-02-03', 'active', 3),
 
-    ('Ana', 'Oliveira', '2007-12-05', '04567-890', 'Rua Azul', '321', NULL, 'Bela Vista', 'São Paulo', '(11) 99999-4444', '@anaoliveira', 'ana.oliveira@email.com', 'senha101', 'Paula Oliveira', '(11) 98888-4444', 'cert_batismo_ana.pdf', 'cert_eucaristia_ana.pdf', '564738291', 'ana.png', '2024-02-04', 'active', 4),
-    ('Bruno', 'Cardoso', '2007-11-18', '04567-891', 'Rua Violeta', '322', 'Apto 5', 'Bela Vista', 'São Paulo', '(11) 99999-4445', '@brunocardoso', 'bruno.cardoso@email.com', 'senha102', 'Sergio Cardoso', '(11) 98888-4445', 'cert_batismo_bruno.pdf', 'cert_eucaristia_bruno.pdf', '564738292', 'bruno.png', '2024-02-04', 'active', 4),
-    ('Leticia', 'Monteiro', '2007-12-22', '04567-892', 'Rua Laranja', '323', 'Casa', 'Bela Vista', 'São Paulo', '(11) 99999-4446', '@leticiamonteiro', 'leticia.monteiro@email.com', 'senha103', 'Cristina Monteiro', '(11) 98888-4446', 'cert_batismo_leticia.pdf', 'cert_eucaristia_leticia.pdf', '564738293', 'leticia.png', '2024-02-04', 'active', 4),
-    ('Gustavo', 'Teixeira', '2007-10-31', '04567-893', 'Rua Dourada', '324', NULL, 'Bela Vista', 'São Paulo', '(11) 99999-4447', '@gustavoteixeira', 'gustavo.teixeira@email.com', 'senha104', 'Marcelo Teixeira', '(11) 98888-4447', 'cert_batismo_gustavo.pdf', 'cert_eucaristia_gustavo.pdf', '564738294', 'gustavo.png', '2024-02-04', 'active', 4),
-    ('Nicole', 'Mendes', '2007-11-07', '04567-894', 'Rua Prata', '325', 'Bloco C', 'Bela Vista', 'São Paulo', '(11) 99999-4448', '@nicolemendes', 'nicole.mendes@email.com', 'senha105', 'Adriana Mendes', '(11) 98888-4448', 'cert_batismo_nicole.pdf', 'cert_eucaristia_nicole.pdf', '564738295', 'nicole.png', '2024-02-04', 'active', 4),
-    ('Arthur', 'Souza', '2007-12-13', '04567-895', 'Rua Bronze', '326', 'Casa', 'Bela Vista', 'São Paulo', '(11) 99999-4449', '@arthursouza', 'arthur.souza@email.com', 'senha106', 'Roberta Souza', '(11) 98888-4449', 'cert_batismo_arthur.pdf', 'cert_eucaristia_arthur.pdf', '564738296', 'arthur.png', '2024-02-04', 'active', 4),
+    ('Ana', 'Oliveira', '2007-12-05', '04567-890', 'Rua Azul', '321', NULL, 'Bela Vista', 'Sao Paulo', '(11) 99999-4444', '@anaoliveira', 'ana.oliveira@email.com', 'senha101', 'Paula Oliveira', '(11) 98888-4444', 'cert_batismo_ana.pdf', 'cert_eucaristia_ana.pdf', '564738291', 'ana.png', '2024-02-04', 'active', 4),
+    ('Bruno', 'Cardoso', '2007-11-18', '04567-891', 'Rua Violeta', '322', 'Apto 5', 'Bela Vista', 'Sao Paulo', '(11) 99999-4445', '@brunocardoso', 'bruno.cardoso@email.com', 'senha102', 'Sergio Cardoso', '(11) 98888-4445', 'cert_batismo_bruno.pdf', 'cert_eucaristia_bruno.pdf', '564738292', 'bruno.png', '2024-02-04', 'active', 4),
+    ('Leticia', 'Monteiro', '2007-12-22', '04567-892', 'Rua Laranja', '323', 'Casa', 'Bela Vista', 'Sao Paulo', '(11) 99999-4446', '@leticiamonteiro', 'leticia.monteiro@email.com', 'senha103', 'Cristina Monteiro', '(11) 98888-4446', 'cert_batismo_leticia.pdf', 'cert_eucaristia_leticia.pdf', '564738293', 'leticia.png', '2024-02-04', 'active', 4),
+    ('Gustavo', 'Teixeira', '2007-10-31', '04567-893', 'Rua Dourada', '324', NULL, 'Bela Vista', 'Sao Paulo', '(11) 99999-4447', '@gustavoteixeira', 'gustavo.teixeira@email.com', 'senha104', 'Marcelo Teixeira', '(11) 98888-4447', 'cert_batismo_gustavo.pdf', 'cert_eucaristia_gustavo.pdf', '564738294', 'gustavo.png', '2024-02-04', 'active', 4),
+    ('Nicole', 'Mendes', '2007-11-07', '04567-894', 'Rua Prata', '325', 'Bloco C', 'Bela Vista', 'Sao Paulo', '(11) 99999-4448', '@nicolemendes', 'nicole.mendes@email.com', 'senha105', 'Adriana Mendes', '(11) 98888-4448', 'cert_batismo_nicole.pdf', 'cert_eucaristia_nicole.pdf', '564738295', 'nicole.png', '2024-02-04', 'active', 4),
+    ('Arthur', 'Souza', '2007-12-13', '04567-895', 'Rua Bronze', '326', 'Casa', 'Bela Vista', 'Sao Paulo', '(11) 99999-4449', '@arthursouza', 'arthur.souza@email.com', 'senha106', 'Roberta Souza', '(11) 98888-4449', 'cert_batismo_arthur.pdf', 'cert_eucaristia_arthur.pdf', '564738296', 'arthur.png', '2024-02-04', 'active', 4),
 
     ('Lucas', 'Ferreira', '2008-03-22', '05678-901', 'Av. Central', '654', 'Bloco B', 'Centro', 'Barueri', '(11) 99999-5555', '@lucasferreira', 'lucas.ferreira@email.com', 'senha202', 'Roberto Ferreira', '(11) 98888-5555', 'cert_batismo_lucas.pdf', 'cert_eucaristia_lucas.pdf', '102938475', 'lucas.png', '2024-02-05', 'active', 5),
     ('Giovanna', 'Araujo', '2008-04-16', '05678-902', 'Av. Norte', '655', 'Apto 6', 'Centro', 'Barueri', '(11) 99999-5556', '@giovannaaraujo', 'giovanna.araujo@email.com', 'senha203', 'Marcia Araujo', '(11) 98888-5556', 'cert_batismo_giovanna.pdf', 'cert_eucaristia_giovanna.pdf', '102938476', 'giovanna.png', '2024-02-05', 'active', 5),
@@ -151,26 +151,26 @@ INSERT INTO crismandos (
 INSERT INTO encontros (
     turma_id, numero_encontro, titulo, descricao, data_encontro, horario_inicio, horario_fim, local, status, observacoes, created_at, updated_at
 ) VALUES
-    (1, 1, 'Apresentação e Acolhida', 'Primeiro encontro com apresentação dos crismandos e explicação do processo de crisma', '2024-03-02', '14:00:00', '15:30:00', 'Sala 1', 'agendado', 'Nenhuma', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    (1, 2, 'A História da Salvação', 'Estudo sobre a história da salvação na Bíblia', '2024-03-09', '14:00:00', '15:30:00', 'Sala 1', 'agendado', 'Nenhuma', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    (2, 1, 'Apresentação e Acolhida', 'Primeiro encontro com apresentação dos crismandos', '2024-03-03', '15:30:00', '17:00:00', 'Sala 2', 'agendado', 'Nenhuma', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    (2, 2, 'A Oração na Vida Cristã', 'Importância da oração e diferentes formas de rezar', '2024-03-10', '15:30:00', '17:00:00', 'Sala 2', 'agendado', 'Nenhuma', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    (3, 1, 'Encontro de Integração', 'Dinâmica de integração dos novos crismandos', '2024-03-17', '16:00:00', '17:30:00', 'Sala 3', 'agendado', 'Nenhuma', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    (1, 1, 'Apresentacao e Acolhida', 'Primeiro encontro com apresentacao dos crismandos e explicacao do processo de crisma', '2024-03-02', '14:00:00', '15:30:00', 'Sala 1', 'agendado', 'Nenhuma', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    (1, 2, 'A Historia da Salvacao', 'Estudo sobre a historia da salvacao na Biblia', '2024-03-09', '14:00:00', '15:30:00', 'Sala 1', 'agendado', 'Nenhuma', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    (2, 1, 'Apresentacao e Acolhida', 'Primeiro encontro com apresentacao dos crismandos', '2024-03-03', '15:30:00', '17:00:00', 'Sala 2', 'agendado', 'Nenhuma', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    (2, 2, 'A Oracao na Vida Crista', 'Importancia da oracao e diferentes formas de rezar', '2024-03-10', '15:30:00', '17:00:00', 'Sala 2', 'agendado', 'Nenhuma', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    (3, 1, 'Encontro de Integracao', 'Dinamica de integracao dos novos crismandos', '2024-03-17', '16:00:00', '17:30:00', 'Sala 3', 'agendado', 'Nenhuma', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO banner_carrocel (
     day_time_start, day_time_end, title, time_start, time_end, localization, image_url, about_event, location, address, created_at, updated_at
 ) VALUES
-    ('2024-04-01', '2024-04-02', 'Retiro Espiritual', '08:00:00', '18:00:00', 'Paróquia Central', 'retiro1.jpg', 'Retiro para aprofundamento espiritual', 'Salão Paroquial', 'Rua das Flores, 100', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('2024-05-10', '2024-05-11', 'Gincana Bíblica', '09:00:00', '17:00:00', 'Quadra', 'gincana.jpg', 'Gincana com atividades bíblicas', 'Quadra Poliesportiva', 'Av. Brasil, 200', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('2024-06-15', '2024-06-16', 'Festa Junina', '15:00:00', '22:00:00', 'Paróquia Central', 'festa_junina.jpg', 'Festa junina com comidas típicas', 'Pátio', 'Rua Verde, 300', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('2024-07-20', '2024-07-21', 'Encontro de Jovens', '10:00:00', '16:00:00', 'Salão Paroquial', 'encontro_jovens.jpg', 'Encontro para jovens crismandos', 'Salão Paroquial', 'Rua Azul, 400', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('2024-08-05', '2024-08-06', 'Missa de Envio', '19:00:00', '21:00:00', 'Igreja Matriz', 'missa_envio.jpg', 'Celebração de envio dos crismandos', 'Igreja Matriz', 'Av. Central, 500', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    ('2024-04-01', '2024-04-02', 'Retiro Espiritual', '08:00:00', '18:00:00', 'Paroquia Central', 'retiro1.jpg', 'Retiro para aprofundamento espiritual', 'Salao Paroquial', 'Rua das Flores, 100', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('2024-05-10', '2024-05-11', 'Gincana Biblica', '09:00:00', '17:00:00', 'Quadra', 'gincana.jpg', 'Gincana com atividades biblicas', 'Quadra Poliesportiva', 'Av. Brasil, 200', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('2024-06-15', '2024-06-16', 'Festa Junina', '15:00:00', '22:00:00', 'Paroquia Central', 'festa_junina.jpg', 'Festa junina com comidas tipicas', 'Patio', 'Rua Verde, 300', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('2024-07-20', '2024-07-21', 'Encontro de Jovens', '10:00:00', '16:00:00', 'Salao Paroquial', 'encontro_jovens.jpg', 'Encontro para jovens crismandos', 'Salao Paroquial', 'Rua Azul, 400', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('2024-08-05', '2024-08-06', 'Missa de Envio', '19:00:00', '21:00:00', 'Igreja Matriz', 'missa_envio.jpg', 'Celebracao de envio dos crismandos', 'Igreja Matriz', 'Av. Central, 500', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO presencas (
     crismando_id, encontro_id, presente, justificativa, observacoes, data_registro
 ) VALUES
     (1, 1, TRUE, NULL, 'Participou normalmente', CURRENT_TIMESTAMP),
-    (2, 1, FALSE, 'Estava doente', 'Faltou por motivo de saúde', CURRENT_TIMESTAMP),
+    (2, 1, FALSE, 'Estava doente', 'Faltou por motivo de saude', CURRENT_TIMESTAMP),
     (3, 2, TRUE, NULL, 'Participou normalmente', CURRENT_TIMESTAMP),
     (4, 3, TRUE, NULL, 'Participou normalmente', CURRENT_TIMESTAMP),
     (5, 4, FALSE, 'Viagem', 'Faltou por viagem', CURRENT_TIMESTAMP);
