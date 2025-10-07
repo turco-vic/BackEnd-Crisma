@@ -9,7 +9,6 @@ API REST para gerenciamento de turmas de crisma, desenvolvida com Node.js, Expre
 - **PostgreSQL** - Banco de dados relacional
 - **Swagger** - Documentação da API
 - **Multer** - Upload de arquivos
-- **PDFKit** - Geração de PDFs
 - **CORS** - Controle de acesso
 - **dotenv** - Gerenciamento de variáveis de ambiente
 
